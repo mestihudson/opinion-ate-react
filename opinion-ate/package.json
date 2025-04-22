@@ -35,6 +35,12 @@
       "prettier/prettier": "warn"
     }
   },
+  "prettier": {
+    "arrowParens": "avoid",
+    "bracketSpacing": false,
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
