@@ -7,6 +7,10 @@ services:
     entrypoint: bash -xc "(source .entrypoint.build) || (test ! -e .entrypoint.build && cd opinion-ate && yarn install && yarn start)"
     ports:
     - 3000:3000
+    environment:
+    - DISPLAY=novnc:0.0
+    depends_on:
+    - novnc
 
   novnc:
     image: theasp/novnc:latest
