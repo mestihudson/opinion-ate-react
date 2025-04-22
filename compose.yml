@@ -3,8 +3,8 @@ services:
     image: cypress/included:14.3.1
     volumes:
     - .:/ws
-    working_dir: /ws
-    entrypoint: bash -xc "(source .entrypoint.build) || (test ! -e .entrypoint.build && cd opinion-ate && yarn install && yarn start)"
+    working_dir: /ws/opinion-ate
+    entrypoint: bash -xc "(source .entrypoint.build) || (test ! -e .entrypoint.build && yarn install && yarn start)"
     ports:
     - 3000:3000
     environment:
