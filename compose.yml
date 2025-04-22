@@ -4,4 +4,4 @@ services:
     volumes:
     - .:/ws
     working_dir: /ws
-    entrypoint: bash -xc "tail -f"
+    entrypoint: bash -xc "(source .entrypoint.build) || (test ! -e .entrypoint.build && cd opinion-ate && yarn install && yarn start)"
