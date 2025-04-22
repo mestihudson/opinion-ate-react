@@ -1,6 +1,6 @@
 services:
   build:
-    image: node:16
+    image: node:18
     volumes:
     - .:/ws
     working_dir: /ws
