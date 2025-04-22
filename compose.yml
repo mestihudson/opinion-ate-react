@@ -5,3 +5,5 @@ services:
     - .:/ws
     working_dir: /ws
     entrypoint: bash -xc "(source .entrypoint.build) || (test ! -e .entrypoint.build && cd opinion-ate && yarn install && yarn start)"
+    ports:
+    - 3000:3000
