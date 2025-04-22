@@ -1,0 +1,7 @@
+services:
+  build:
+    image: node:16
+    volumes:
+    - .:/ws
+    working_dir: /ws
+    entrypoint: bash -xc "tail -f"
