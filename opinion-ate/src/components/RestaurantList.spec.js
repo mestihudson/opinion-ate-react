@@ -4,8 +4,9 @@ import RestaurantList from './RestaurantList'
 describe('RestaurantList', () => {
   it('loads restaurants on first render', () => {
     const loadRestaurants = jest.fn().mockName('loadRestaurants')
+    const restaurants = []
 
-    render(<RestaurantList loadRestaurants={loadRestaurants} />)
+    render(<RestaurantList loadRestaurants={loadRestaurants} restaurants={restaurants} />)
 
     expect(loadRestaurants).toHaveBeenCalled()
   })
