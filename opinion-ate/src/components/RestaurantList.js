@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { connect } from 'react-redux'
 
-function RestaurantList({ loadRestaurants, restaurants }) {
+export function RestaurantList({ loadRestaurants, restaurants }) {
   useEffect(() => {
     loadRestaurants()
   }, [loadRestaurants])
