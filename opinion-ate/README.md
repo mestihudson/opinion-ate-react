@@ -1,4 +1,12 @@
-# Getting Started with Create React App
+# opinion-ate-react
+
+An app for tracking reviews of dishes at different restaurants.
+
+Production: <https://opinion-ate-react-mestihudson.netlify.app>
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/71499ecb-49e3-403d-8472-f4119f595455/deploy-status)](https://app.netlify.com/sites/opinion-ate-react-mestihudson/deploys)
+
+Dependencies are locked with a `yarn.lock` file, so please use `yarn` instead of `npm` to install them.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
