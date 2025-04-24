@@ -9,4 +9,4 @@ const store = createStore(
   applyMiddleware(thunk.withExtraArgument(api)),
 )
 
-export default store;
+export default store
