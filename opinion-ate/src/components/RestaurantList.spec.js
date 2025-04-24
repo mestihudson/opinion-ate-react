@@ -12,7 +12,12 @@ describe('RestaurantList', () => {
   function renderComponent() {
     loadRestaurants = jest.fn().mockName('loadRestaurants')
 
-    render(<RestaurantList loadRestaurants={loadRestaurants} restaurants={restaurants} />)
+    render(
+      <RestaurantList
+        loadRestaurants={loadRestaurants}
+        restaurants={restaurants}
+      />,
+    )
   }
 
   it('loads restaurants on first render', () => {
