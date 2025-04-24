@@ -42,8 +42,12 @@
     }
   },
   "prettier": {
-    "arrowParens": "avoid",
-    "bracketSpacing": false,
+    "bracketSameLine": false,
+    "tabWidth": 2,
+    "tabs": false,
+    "bracketSpacing": true,
+    "semi": false,
+    "arrowParens": "always",
     "singleQuote": true,
     "trailingComma": "all"
   },
