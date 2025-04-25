@@ -7,6 +7,14 @@ services:
     entrypoint: bash -xc "(source .entrypoint.build) || (test ! -e .entrypoint.build && yarn install && yarn build)"
     environment:
     - DISABLE_ESLINT_PLUGIN=true
+
+  lint:
+    image: cypress/included:14.3.1
+    volumes:
+    - .:/ws
+    working_dir: /ws/opinion-ate
+    entrypoint: bash -xc "(source .entrypoint.lint) || (test ! -e .entrypoint.lint && yarn install && yarn lint)"
+
   dev:
     image: cypress/included:14.3.1
     volumes:
