@@ -1,20 +1,22 @@
-name: Test
+name: test
 on: [push]
 
 jobs:
   test:
-    name: Test
+    name: test
     runs-on: ubuntu-22.04
     defaults:
       run:
         working-directory: ./opinion-ate
     steps:
     - uses: actions/checkout@v3
-    - name: Install Dependencies
+    - name: install dependencies
       run: yarn install --frozen-lockfile
-    - name: Unit Tests
+    - name: lint
+      run: yarn lint --max-warnings=0
+    - name: unit tests
       run: yarn test --watchAll=false
-    - name: E2E Tests
+    - name: e2e tests
       uses: cypress-io/github-action@v6
       with:
         browser: chrome
