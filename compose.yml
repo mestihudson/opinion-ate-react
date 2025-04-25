@@ -30,6 +30,8 @@ services:
     entrypoint: bash -xc "(source .entrypoint.dev) || (test ! -e .entrypoint.dev && yarn install && yarn start)"
     ports:
     - 3000:3000
+    environment:
+    - DISABLE_ESLINT_PLUGIN=true
 
   e2e:
     image: cypress/included:14.3.1
