@@ -15,6 +15,13 @@ services:
     working_dir: /ws/opinion-ate
     entrypoint: bash -xc "(source .entrypoint.lint) || (test ! -e .entrypoint.lint && yarn install && yarn lint)"
 
+  unit:
+    image: cypress/included:14.3.1
+    volumes:
+    - .:/ws
+    working_dir: /ws/opinion-ate
+    entrypoint: bash -xc "(source .entrypoint.unit) || (test ! -e .entrypoint.unit && yarn install && yarn test --watchAll)"
+
   dev:
     image: cypress/included:14.3.1
     volumes:
