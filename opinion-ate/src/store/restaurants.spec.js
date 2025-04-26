@@ -86,7 +86,7 @@ describe('restaurants', () => {
         const api = {
           loadRestaurants: () => new Promise(() => { }),
         }
-        const initialState = {}
+        const initialState = { loadError: true }
         store = createStore(
           restaurantsReducer,
           initialState,
