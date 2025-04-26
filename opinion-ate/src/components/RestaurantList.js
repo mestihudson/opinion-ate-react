@@ -1,3 +1,4 @@
+import Alert from '@mui/material/Alert'
 import CircularProgress from '@mui/material/CircularProgress'
 import List from '@mui/material/List'
 import ListItem from '@mui/material/ListItem'
@@ -16,6 +17,7 @@ export function RestaurantList({ loadRestaurants, restaurants, loading }) {
   return (
     <>
       {loading && <CircularProgress />}
+      <Alert severity="error">Restaurants could not be loaded.</Alert>
       <List>
         {restaurants.map((restaurant) => (
           <ListItem key={restaurant.id}>
