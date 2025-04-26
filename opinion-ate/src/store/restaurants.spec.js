@@ -52,6 +52,30 @@ describe('restaurants', () => {
       })
     })
 
+    describe('when loading fails', () => {
+      let store
+
+      beforeEach(() => {
+        const api = {
+          loadRestaurants: () => Promise.reject(),
+        }
+
+        const initialState = {}
+
+        store = createStore(
+          restaurantsReducer,
+          initialState,
+          applyMiddleware(thunk.withExtraArgument(api)),
+        )
+
+        return store.dispatch(loadRestaurants())
+      })
+
+      it('sets an error flag', () => {
+        expect(store.getState().loadError).toEqual(true)
+      })
+    })
+
     describe('while loading', () => {
       it('sets a loading flag', () => {
         const api = {
