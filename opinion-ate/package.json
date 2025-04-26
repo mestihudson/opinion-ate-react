@@ -20,6 +20,7 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
+    "e2e:run": "cypress run --e2e --browser=chrome",
     "e2e:open": "cypress open --e2e --browser=chrome",
     "lint": "eslint src",
     "start": "react-scripts start",
