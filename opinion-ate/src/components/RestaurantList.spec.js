@@ -36,6 +36,15 @@ describe('RestaurantList', () => {
     })
   })
 
+  describe('when loading fails', () => {
+    it('displays the error message', () => {
+      renderComponent({ loadError: true })
+      expect(
+        screen.getByText('Restaurants could not be loaded.'),
+      ).toBeInTheDocument()
+    })
+  })
+
   it('loads restaurants on first render', () => {
     renderComponent()
 
