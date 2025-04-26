@@ -6,16 +6,19 @@ import restaurantsReducer from './restaurants/reducers'
 
 describe('restaurants', () => {
   describe('initially', () => {
+    const initialState = {}
+    const store = createStore(
+      restaurantsReducer,
+      initialState,
+      applyMiddleware(thunk),
+    )
+
     it('does not have the loading flag set', () => {
-      const initialState = {}
-
-      const store = createStore(
-        restaurantsReducer,
-        initialState,
-        applyMiddleware(thunk),
-      )
-
       expect(store.getState().loading).toEqual(false)
+    })
+
+    it('does not have the error flag set', () => {
+      expect(store.getState().loadError).toEqual(false)
     })
   })
 
