@@ -29,7 +29,7 @@ describe('restaurants', () => {
         return store.dispatch(loadRestaurants())
       })
 
-      it('stores the restaurants', async () => {
+      it('stores the restaurants', () => {
         expect(store.getState().records).toEqual(records)
       })
     })
