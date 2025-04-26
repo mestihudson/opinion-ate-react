@@ -29,5 +29,23 @@ describe('restaurants', () => {
         expect(store.getState().records).toEqual(records)
       })
     })
+
+    describe('while loading', () => {
+      it('sets a loading flag', () => {
+        const api = {
+          loadRestaurants: () => new Promise(() => { }),
+        }
+        const initialState = {}
+        const store = createStore(
+          restaurantsReducer,
+          initialState,
+          applyMiddleware(thunk.withExtraArgument(api)),
+        )
+
+        store.dispatch(loadRestaurants())
+
+        expect(store.getState().loading).toEqual(true)
+      })
+    })
   })
 })
