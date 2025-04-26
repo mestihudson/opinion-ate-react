@@ -9,15 +9,15 @@ describe('RestaurantList', () => {
 
   let loadRestaurants
 
-  function renderComponent() {
-    loadRestaurants = jest.fn().mockName('loadRestaurants')
+  function renderComponent(propsOverrides = {}) {
+    const props = {
+      loadRestaurants: jest.fn().mockName('loadRestaurants'),
+      restaurants,
+      ...propsOverrides,
+    }
+    loadRestaurants = props.loadRestaurants
 
-    render(
-      <RestaurantList
-        loadRestaurants={loadRestaurants}
-        restaurants={restaurants}
-      />,
-    )
+    render(<RestaurantList{...props} />)
   }
 
   it('loads restaurants on first render', () => {
