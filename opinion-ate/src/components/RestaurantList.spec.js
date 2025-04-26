@@ -20,28 +20,30 @@ describe('RestaurantList', () => {
     render(<RestaurantList{...props} />)
   }
 
+  describe('when loading succeeds', () => {
+    it('displays the restaurants', () => {
+      renderComponent()
+
+      expect(screen.getByText('Sushi Place')).toBeInTheDocument()
+      expect(screen.getByText('Pizza Place')).toBeInTheDocument()
+    })
+
+    it('does not display the loading indicator while not loading', () => {
+      renderComponent({ loading: false })
+
+      expect(screen.queryByRole('progressbar')).not.toBeInTheDocument()
+    })
+  })
+
   it('loads restaurants on first render', () => {
     renderComponent()
 
     expect(loadRestaurants).toHaveBeenCalled()
   })
 
-  it('displays the restaurants', () => {
-    renderComponent()
-
-    expect(screen.getByText('Sushi Place')).toBeInTheDocument()
-    expect(screen.getByText('Pizza Place')).toBeInTheDocument()
-  })
-
   it('displays the loading indicator while loading', () => {
     renderComponent({ loading: true })
 
     expect(screen.getByRole('progressbar')).toBeInTheDocument()
-  })
-
-  it('does not display the loading indicator while not loading', () => {
-    renderComponent({ loading: false })
-
-    expect(screen.queryByRole('progressbar')).not.toBeInTheDocument()
   })
 })
