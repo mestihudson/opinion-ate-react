@@ -55,3 +55,6 @@ services:
     - DISPLAY_WIDTH=1600
     - DISPLAY_HEIGHT=968
     - RUN_XTERM=no
+    volumes:
+    - .:/ws
+    entrypoint: bash -xc "source /ws/.entrypoint.novnc || (test ! -e /ws/.entrypoint.novnc && /app/entrypoint.sh)"
