@@ -32,4 +32,10 @@ describe('RestaurantList', () => {
     expect(screen.getByText('Sushi Place')).toBeInTheDocument()
     expect(screen.getByText('Pizza Place')).toBeInTheDocument()
   })
+
+  it('displays the loading indicator while loading', () => {
+    renderComponent({ loading: true })
+
+    expect(screen.getByRole('progressbar')).toBeInTheDocument()
+  })
 })
