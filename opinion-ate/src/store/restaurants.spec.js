@@ -11,22 +11,25 @@ describe('restaurants', () => {
         { id: 1, name: 'Sushi Place' },
         { id: 2, name: 'Pizza Place' },
       ]
+      let store
 
-      it('stores the restaurants', async () => {
+      beforeEach(async () => {
         const api = {
           loadRestaurants: () => Promise.resolve(records),
         }
         const initialState = {
           records: [],
         }
-        const store = createStore(
+        store = createStore(
           restaurantsReducer,
           initialState,
           applyMiddleware(thunk.withExtraArgument(api)),
         )
 
         await store.dispatch(loadRestaurants())
+      })
 
+      it('stores the restaurants', async () => {
         expect(store.getState().records).toEqual(records)
       })
     })
