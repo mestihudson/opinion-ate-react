@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
 
 import {
-  loadRestaurants,
   RECORD_LOADING_ERROR,
   START_LOADING,
   STORE_RESTAURANTS,
