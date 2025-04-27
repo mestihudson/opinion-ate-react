@@ -18,7 +18,7 @@ describe('RestaurantList', () => {
     }
     loadRestaurants = props.loadRestaurants
 
-    render(<RestaurantList{...props} />)
+    render(<RestaurantList {...props} />)
   }
 
   describe('when loading succeeds', () => {
@@ -37,7 +37,9 @@ describe('RestaurantList', () => {
 
     it('does not display the error message', () => {
       renderComponent()
-      expect(screen.queryByText('Restaurants could not be loaded.')).not.toBeInTheDocument()
+      expect(
+        screen.queryByText('Restaurants could not be loaded.'),
+      ).not.toBeInTheDocument()
     })
   })
 
