@@ -22,7 +22,7 @@
   "scripts": {
     "e2e:run": "cypress run --e2e --browser=chrome",
     "e2e:open": "cypress open --e2e --browser=chrome",
-    "lint": "eslint src",
+    "lint": "eslint src cypress",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
