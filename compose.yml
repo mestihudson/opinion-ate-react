@@ -27,7 +27,7 @@ services:
     volumes:
     - .:/ws
     working_dir: /ws/opinion-ate
-    entrypoint: bash -xc "(source .entrypoint.dev) || (test ! -e .entrypoint.dev && yarn install && yarn start)"
+    entrypoint: bash -xc "(source .entrypoint.dev) || (test ! -e .entrypoint.dev && yarn install && yarn start --open=false)"
     ports:
     - 3000:3000
     environment:
