@@ -14,6 +14,7 @@ describe('NewRestaurantForm', () => {
   describe('when filled in', () => {
     async function fillInForm() {
       renderComponent()
+      createRestaurant.mockResolvedValue()
       await userEvent.type(
         screen.getByPlaceholderText('Add Restaurant'),
         restaurantName,
