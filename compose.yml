@@ -4,7 +4,7 @@ services:
     volumes:
     - .:/ws
     working_dir: /ws/opinion-ate
-    entrypoint: bash -xc "(source .entrypoint.build) || (test ! -e .entrypoint.build && yarn install && yarn build)"
+    entrypoint: bash -xc "(source /ws/.entrypoint.build) || (test ! -e /ws/.entrypoint.build && yarn install && yarn build)"
     environment:
     - DISABLE_ESLINT_PLUGIN=true
 
@@ -13,21 +13,21 @@ services:
     volumes:
     - .:/ws
     working_dir: /ws/opinion-ate
-    entrypoint: bash -xc "(source .entrypoint.lint) || (test ! -e .entrypoint.lint && yarn install && yarn lint)"
+    entrypoint: bash -xc "(source /ws/.entrypoint.lint) || (test ! -e /ws/.entrypoint.lint && yarn install && yarn lint)"
 
   unit:
     image: cypress/included:14.3.2
     volumes:
     - .:/ws
     working_dir: /ws/opinion-ate
-    entrypoint: bash -xc "(source .entrypoint.unit) || (test ! -e .entrypoint.unit && yarn install && yarn test --watchAll)"
+    entrypoint: bash -xc "(source /ws/.entrypoint.unit) || (test ! -e /ws/.entrypoint.unit && yarn install && yarn test --watchAll)"
 
   dev:
     image: cypress/included:14.3.2
     volumes:
     - .:/ws
     working_dir: /ws/opinion-ate
-    entrypoint: bash -xc "(source .entrypoint.dev) || (test ! -e .entrypoint.dev && yarn install && yarn start --open=false)"
+    entrypoint: bash -xc "(source /ws/.entrypoint.dev) || (test ! -e /ws/.entrypoint.dev && yarn install && yarn start --open=false)"
     ports:
     - 3000:3000
     environment:
@@ -38,7 +38,7 @@ services:
     volumes:
     - .:/ws
     working_dir: /ws/opinion-ate
-    entrypoint: bash -xc "(source .entrypoint.e2e-open) || (test ! -e .entrypoint.e2e-open && yarn install && yarn e2e:open)"
+    entrypoint: bash -xc "(source /ws/.entrypoint.e2e-open) || (test ! -e /ws/.entrypoint.e2e-open && yarn install && yarn e2e:open)"
     environment:
     - DISPLAY=novnc:0.0
     - BASE_URL=http://dev.opinion-ate-react.com.br:3000
@@ -53,7 +53,7 @@ services:
     volumes:
     - .:/ws
     working_dir: /ws/opinion-ate
-    entrypoint: bash -xc "(source .entrypoint.e2e-run) || (test ! -e .entrypoint.e2e-run && yarn install && yarn e2e:run)"
+    entrypoint: bash -xc "(source /ws/.entrypoint.e2e-run) || (test ! -e /ws/.entrypoint.e2e-run && yarn install && yarn e2e:run)"
     environment:
     - BASE_URL=http://dev.opinion-ate-react.com.br:3000
     depends_on:
