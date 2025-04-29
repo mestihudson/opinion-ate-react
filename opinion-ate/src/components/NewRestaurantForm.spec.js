@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { act, render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import flushPromises from 'flush-promises'
 
-import { NewRestaurantForm } from './NewRestaurantForm';
+import { NewRestaurantForm } from './NewRestaurantForm'
 
 describe('NewRestaurantForm', () => {
   const restaurantName = 'Sushi Place'
@@ -20,6 +21,7 @@ describe('NewRestaurantForm', () => {
         restaurantName,
       )
       userEvent.click(screen.getByText('Add'))
+      return act(flushPromises)
     }
 
     it('calls createRestaurant with the name', async () => {
