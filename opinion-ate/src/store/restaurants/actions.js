@@ -21,4 +21,6 @@ const storeRestaurants = (records) => ({
   records,
 })
 
-export const createRestaurant = () => () => { }
+export const createRestaurant = (name) => async (dispatch, getState, api) => {
+  await api.createRestaurant(name)
+}
