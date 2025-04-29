@@ -1,5 +1,6 @@
-import TextField from '@mui/material/TextField'
+import Alert from '@mui/material/Alert'
 import Button from '@mui/material/Button'
+import TextField from '@mui/material/TextField'
 import { useState } from 'react'
 import { connect } from 'react-redux'
 
@@ -16,6 +17,7 @@ export function NewRestaurantForm({ createRestaurant }) {
 
   return (
     <form onSubmit={handleSubmit}>
+      <Alert severity="error">Name is required</Alert>
       <TextField
         value={name}
         onChange={(e) => setName(e.target.value)}
