@@ -88,7 +88,7 @@ describe('restaurants', () => {
 
       beforeEach(() => {
         const api = {
-          loadRestaurants: () => new Promise(() => { }),
+          loadRestaurants: () => new Promise(() => {}),
         }
         const initialState = { loadError: true }
         store = createStore(

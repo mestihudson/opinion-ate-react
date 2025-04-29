@@ -28,7 +28,7 @@ export const createRestaurant = (name) => async (dispatch, getState, api) => {
   dispatch(addRestaurant(record))
 }
 
-const addRestaurant = record => ({
+const addRestaurant = (record) => ({
   type: ADD_RESTAURANT,
   record,
 })
