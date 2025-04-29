@@ -20,3 +20,5 @@ const storeRestaurants = (records) => ({
   type: STORE_RESTAURANTS,
   records,
 })
+
+export const createRestaurant = () => () => { }
