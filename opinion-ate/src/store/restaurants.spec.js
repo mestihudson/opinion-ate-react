@@ -88,7 +88,7 @@ describe('restaurants', () => {
 
       beforeEach(() => {
         const api = {
-          loadRestaurants: () => new Promise(() => {}),
+          loadRestaurants: () => new Promise(() => { }),
         }
         const initialState = { loadError: true }
         store = createStore(
@@ -151,4 +151,12 @@ describe('createRestaurant action', () => {
       ])
     })
   })
+
+  describe('when save fails', () => {
+    it('rejects', () => {
+      api.createRestaurant.mockRejectedValue();
+      const promise = store.dispatch(createRestaurant(newRestaurantName));
+      return expect(promise).rejects.toBeUndefined();
+    });
+  });
 })
