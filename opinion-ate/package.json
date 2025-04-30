@@ -22,7 +22,7 @@
   "scripts": {
     "e2e:run": "cypress run --e2e --browser=chrome",
     "e2e:open": "cypress open --e2e --browser=chrome",
-    "lint": "eslint src",
+    "lint": "eslint src cypress",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -72,6 +72,7 @@
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-cypress": "2.12.1",
     "eslint-plugin-prettier": "4.0.0",
+    "flush-promises": "^1.0.2",
     "prettier": "2.6.2"
   }
 }
