@@ -128,4 +128,27 @@ describe('NewRestaurantForm', () => {
       );
     });
   });
+
+  describe('when retrying after a server error', () => {
+    async function retrySubmittingForm() {
+      renderComponent();
+      createRestaurant.mockRejectedValueOnce().mockResolvedValueOnce();
+
+      await userEvent.type(
+        screen.getByPlaceholderText('Add Restaurant'),
+        restaurantName,
+      );
+      userEvent.click(screen.getByText('Add'));
+      await act(flushPromises)
+
+      userEvent.click(screen.getByText('Add'));
+
+      return act(flushPromises);
+    }
+
+    it('clears the server error', async () => {
+      await retrySubmittingForm();
+      expect(screen.queryByText(serverError)).not.toBeInTheDocument();
+    });
+  });
 })
