@@ -17,13 +17,13 @@ export function NewRestaurantForm({ createRestaurant }) {
       setValidationError(false)
       try {
         await createRestaurant(name)
+        setName('')
       } catch {
         setServerError(true)
       }
     } else {
       setValidationError(true)
     }
-    setName('')
   }
 
   return (
